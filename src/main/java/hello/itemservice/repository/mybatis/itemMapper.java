@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Mapper
-public interface ItemMapper {
+public interface itemMapper {
     void save(Item item);
 
     void update(@Param("id") Long id, @Param("updateParam") ItemUpdateDto updateParam);
