@@ -8,6 +8,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -59,6 +60,8 @@ class ItemRepositoryTest {
         assertThat(findItem).isEqualTo(savedItem);
     }
 
+    //@Commit //바로 데이터가 나가지 않고 JPA 캐시에 저장되어 있기때문에, update 쿼리가 보이지 않는다.
+    //만약 update 쿼리가 보고 싶으면 @Commit 을 진행 해야 한다.
     @Test
     void updateItem() {
         //given
